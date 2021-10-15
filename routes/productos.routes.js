@@ -27,12 +27,12 @@ class Producto {
 //Routes
 
 //Listar todos los productos
-router.get('/listar', (req, res)=>{
+router.get('/', (req, res)=>{
     res.send(productos)
 })
 
 //Listar por id
-router.get("/listar/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     const id = req.params.id;
     try {
       if (id <= productos.length) {
@@ -46,7 +46,7 @@ router.get("/listar/:id", (req, res) => {
   });
 
 //Agregar producto
-router.post("/agregar", (req, res) => {
+router.post("/", (req, res) => {
     const { nombre, timestamp, descripcion, codigo, foto, precio, stock } = req.body;
     try {
       productos.push(new Producto(nombre, timestamp, descripcion, codigo, foto, precio, stock  ));
